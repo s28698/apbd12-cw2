@@ -1,0 +1,22 @@
+namespace ConsoleApp2.Main;
+
+public class Container
+{
+    public double CargoMass { get; set; }
+    public double HeightCm { get; set; }
+    public double SelfWeight { get; set; }
+    public double DepthCm { get; set; }
+    public string SerialNumber { get; set; }
+    public double MaxCapacityKg { get; set; }
+
+    public Container(double cargoMass, double heightCm, double selfWeight, double depthCm, double maxCapacityKg, string containterTypeCode)
+    {
+        CargoMass = cargoMass;
+        HeightCm = heightCm;
+        SelfWeight = selfWeight;
+        DepthCm = depthCm;
+        MaxCapacityKg = maxCapacityKg;
+        
+        SerialNumber = GeneratorSerialNumber.GenerateSerialNumber(containterTypeCode);
+    }
+}
