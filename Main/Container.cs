@@ -6,7 +6,7 @@ public class Container
     public double HeightCm { get; set; }
     public double SelfWeight { get; set; }
     public double DepthCm { get; set; }
-    public string SerialNumber { get; set; }
+    public string SerialNumber { get;}
     public double MaxCapacityKg { get; set; }
 
     public Container(double cargoMass, double heightCm, double selfWeight, double depthCm, double maxCapacityKg, string containterTypeCode)
@@ -18,5 +18,22 @@ public class Container
         MaxCapacityKg = maxCapacityKg;
         
         SerialNumber = GeneratorSerialNumber.GenerateSerialNumber(containterTypeCode);
+    }
+
+    public virtual void LoadCargo(double mass)
+    {
+        if (CargoMass + mass > MaxCapacityKg)
+        {
+            throw new OverfillException($"Przekroczono pojemność kontenera ({MaxCapacityKg} kg).");
+        }
+        else
+        {
+            CargoMass += mass;
+        }
+    }
+
+    public void UnloadCargo()
+    {
+        CargoMass = 0;
     }
 }
