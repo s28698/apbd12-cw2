@@ -32,8 +32,8 @@ public class Container
         }
     }
 
-    public void UnloadCargo()
+    public virtual void UnloadCargo()
     {
-        CargoMass = 0;
+        CargoMass =   0;
     }
 }

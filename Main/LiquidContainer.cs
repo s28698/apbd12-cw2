@@ -7,7 +7,7 @@ public class LiquidContainer : Container, IHazardNotifier
 {
     public CargoType CargoType { get; set; }
     
-    public LiquidContainer(double cargoMass, double heightCm, double selfWeight, double depthCm, double maxCapacityKg, string containterTypeCode) : base(cargoMass, heightCm, selfWeight, depthCm, maxCapacityKg, "L")
+    public LiquidContainer(double cargoMass, double heightCm, double selfWeight, double depthCm, double maxCapacityKg) : base(cargoMass, heightCm, selfWeight, depthCm, maxCapacityKg, "L")
     {
         CargoType = CargoType.Normal;
     }
@@ -38,5 +38,12 @@ public class LiquidContainer : Container, IHazardNotifier
         
         base.LoadCargo(mass);
     }
+    
+    public void SetCargoType(CargoType type)
+    {
+        CargoType = type;
+    }
+    
+    
     
 }
