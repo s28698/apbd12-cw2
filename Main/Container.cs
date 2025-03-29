@@ -1,6 +1,6 @@
 namespace ConsoleApp2.Main;
 
-public class Container
+public abstract class Container
 {
     public double CargoMass { get; set; }
     public double HeightCm { get; set; }//
