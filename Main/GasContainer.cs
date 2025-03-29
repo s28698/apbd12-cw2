@@ -4,12 +4,11 @@ namespace ConsoleApp2.Main;
 
 public class GasContainer : Container, IHazardNotifier
 {
-    public double atmosphericPressure { get; set; }
+    public double AtmosphericPressure { get; set; }
     public GasContainer(double cargoMass, double heightCm, double selfWeight, double depthCm, double maxCapacityKg, double atmosphericPressure) : base(cargoMass, heightCm, selfWeight, depthCm, maxCapacityKg, "G")
     {
-        this.atmosphericPressure = atmosphericPressure;
+        AtmosphericPressure = atmosphericPressure;
     }
-    
     
     public void SendHazardNotification(string s)
     {
@@ -35,12 +34,4 @@ public class GasContainer : Container, IHazardNotifier
             CargoMass *= 0.05;
         }
     }
-    
-    public void SetPressure(double newPressure)
-    {
-        atmosphericPressure = newPressure;
-    }
-    
-    
-
 }

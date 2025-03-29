@@ -24,7 +24,7 @@ public class CooledContainer : Container
 
     public CooledContainer(double cargoMass, double heightCm, double selfWeight, double depthCm, double maxCapacityKg, double containerTemperature) : base(cargoMass, heightCm, selfWeight, depthCm, maxCapacityKg, "C")
     {
-        ContainerTemperature = containerTemperature; 
+        ContainerTemperature = containerTemperature;
     }
     
     public void LoadProduct(double mass, ProductType productType)

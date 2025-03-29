@@ -20,17 +20,10 @@ public class LiquidContainer : Container, IHazardNotifier
 
     public override void LoadCargo(double mass)
     {
-        double LimitByType = 0;
-        if (CargoType == CargoType.Normal)
-        {
-            LimitByType = CargoMass * 0.9;
-        }
-        else if (CargoType == CargoType.Hazardous)
-        {
-            LimitByType = CargoMass * 0.5;
-        }
+        double limitFactor = (CargoType == CargoType.Normal) ? 0.9 : 0.5;
+        double limitByType = MaxCapacityKg * limitFactor;
 
-        if (CargoMass + mass > LimitByType)
+        if (CargoMass + mass > limitByType)
         {
             SendHazardNotification($"Próba przekroczenia limitu dla ładunku {CargoType} | ${SerialNumber}");
             throw new OverflowException("Przekroczono limit");
